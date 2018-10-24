@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class TodoApp extends Component {
@@ -42,7 +41,6 @@ class TodoCreater extends Component {
   }
   hundleSubmit(e){
     e.preventDefault();
-    var todo = this.state.todo.trim();//trimで両端の空白を除く
   }
 
   handleTodo(e){
