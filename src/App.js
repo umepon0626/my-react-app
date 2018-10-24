@@ -16,7 +16,7 @@ class TodoApp extends Component {
   render() {
     return (
       <div className="TodoApp">
-        <TodoList/>
+        <TodoList list={this.state.list}/>
         <TodoCreater onSubmit={this.hundleTodoSubmit}/>
       </div>
     );
@@ -29,7 +29,7 @@ class TodoList extends Component {
   }
   render(){
     return(
-      <h1>{this.state.list}</h1>
+      <h1>{this.props.list}</h1>
     );
   }
 }
