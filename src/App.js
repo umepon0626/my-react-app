@@ -4,13 +4,15 @@ import './App.css';
 class TodoApp extends Component {
   constructor(){
     super()
-    this.state = {list:['a']}
+    this.state = {list:["a","b"]}
     this.hundleTodoSubmit = this.hundleTodoSubmit.bind(this);
   }
   hundleTodoSubmit(e){
-    var todos = this.state.list
-    var newtodos = todos.concat([e]);
-    this.setState({list:newtodos})
+    var d = e.target.value //targetvalueが効いてない！！
+    return({d})
+  //  var todos = this.state.list
+  //  var newtodos = this.state.list.concat([e.target.value]);
+  //  this.setState({list:newtodos})
   }
   render() {
     return (
@@ -22,13 +24,13 @@ class TodoApp extends Component {
   }
 }
 class TodoList extends Component {
-  constructor(){
-    super()
-    this.state = {list:['a']}
-  }
+//  constructor(){
+  //  super()
+    //this.state = {list:['a']}
+  //}
   render(){
     return(
-      <h1>{this.props.list}</h1>
+      <h1>{this.props.list[1]}</h1>
     );
   }
 }
@@ -37,10 +39,6 @@ class TodoCreater extends Component {
     super();
     this.state = {todo:""};
     this.handleTodo = this.handleTodo.bind(this);
-    this.hundleSubmit = this.hundleSubmit.bind(this);
-  }
-  hundleSubmit(e){
-    e.preventDefault();
   }
 
   handleTodo(e){
@@ -48,10 +46,13 @@ class TodoCreater extends Component {
   }
   render(){
     return(
+      <div>
       <form className="todoForm" onSubmit={this.props.onSubmit}>
-        <input type='text' onChange={this.handleTodo} />
+        <input type="text" value={this.state.todo} onChange={this.handleTodo} />
         <input type='submit'/>
       </form>
+
+      </div>
     );
   }
 }
